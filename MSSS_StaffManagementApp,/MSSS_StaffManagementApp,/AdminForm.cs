@@ -57,11 +57,7 @@ namespace MSSS_StaffManagementApp_
 
 			lblAdminStatus.Text = "Record created successfully.";
 
-		}
-		public void CloseForm()
-		{
-			this.Close();
-		}
+		}		
 		private void btnOpenMain_Click(object sender, EventArgs e)
 		{
 			this.Close();

@@ -39,8 +39,8 @@
 			this.btnOpenAdmin = new System.Windows.Forms.Button();
 			this.lblStatus = new System.Windows.Forms.Label();
 			this.txtFilter = new System.Windows.Forms.TextBox();
-			this.textBox2 = new System.Windows.Forms.TextBox();
-			this.textBox3 = new System.Windows.Forms.TextBox();
+			this.UserTextBox = new System.Windows.Forms.TextBox();
+			this.pwdTextBox = new System.Windows.Forms.TextBox();
 			this.SuspendLayout();
 			// 
 			// loadButton
@@ -102,18 +102,18 @@
 			this.label3.AutoSize = true;
 			this.label3.Location = new System.Drawing.Point(18, 347);
 			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(46, 13);
+			this.label3.Size = new System.Drawing.Size(32, 13);
 			this.label3.TabIndex = 8;
-			this.label3.Text = "Staff ID:";
+			this.label3.Text = "User:";
 			// 
 			// label4
 			// 
 			this.label4.AutoSize = true;
 			this.label4.Location = new System.Drawing.Point(231, 345);
 			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(38, 13);
+			this.label4.Size = new System.Drawing.Size(56, 13);
 			this.label4.TabIndex = 10;
-			this.label4.Text = "Name:";
+			this.label4.Text = "Password:";
 			// 
 			// btnOpenAdmin
 			// 
@@ -129,7 +129,7 @@
 			// lblStatus
 			// 
 			this.lblStatus.AutoSize = true;
-			this.lblStatus.Location = new System.Drawing.Point(22, 428);
+			this.lblStatus.Location = new System.Drawing.Point(181, 400);
 			this.lblStatus.Name = "lblStatus";
 			this.lblStatus.Size = new System.Drawing.Size(106, 13);
 			this.lblStatus.TabIndex = 13;
@@ -142,27 +142,28 @@
 			this.txtFilter.Size = new System.Drawing.Size(143, 20);
 			this.txtFilter.TabIndex = 14;
 			// 
-			// textBox2
+			// UserTextBox
 			// 
-			this.textBox2.Location = new System.Drawing.Point(89, 340);
-			this.textBox2.Name = "textBox2";
-			this.textBox2.Size = new System.Drawing.Size(100, 20);
-			this.textBox2.TabIndex = 15;
+			this.UserTextBox.Location = new System.Drawing.Point(89, 340);
+			this.UserTextBox.Name = "UserTextBox";
+			this.UserTextBox.Size = new System.Drawing.Size(100, 20);
+			this.UserTextBox.TabIndex = 15;
 			// 
-			// textBox3
+			// pwdTextBox
 			// 
-			this.textBox3.Location = new System.Drawing.Point(287, 342);
-			this.textBox3.Name = "textBox3";
-			this.textBox3.Size = new System.Drawing.Size(100, 20);
-			this.textBox3.TabIndex = 16;
+			this.pwdTextBox.Location = new System.Drawing.Point(287, 342);
+			this.pwdTextBox.Name = "pwdTextBox";
+			this.pwdTextBox.PasswordChar = '*';
+			this.pwdTextBox.Size = new System.Drawing.Size(100, 20);
+			this.pwdTextBox.TabIndex = 16;
 			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(441, 450);
-			this.Controls.Add(this.textBox3);
-			this.Controls.Add(this.textBox2);
+			this.Controls.Add(this.pwdTextBox);
+			this.Controls.Add(this.UserTextBox);
 			this.Controls.Add(this.txtFilter);
 			this.Controls.Add(this.lblStatus);
 			this.Controls.Add(this.btnOpenAdmin);
@@ -194,8 +195,8 @@
 		private System.Windows.Forms.Label lblStatus;
 		private System.Windows.Forms.ListBox lstAllRecords;
 		private System.Windows.Forms.TextBox txtFilter;
-		private System.Windows.Forms.TextBox textBox2;
-		private System.Windows.Forms.TextBox textBox3;
+		private System.Windows.Forms.TextBox UserTextBox;
+		private System.Windows.Forms.TextBox pwdTextBox;
 	}
 }
 

@@ -14,33 +14,44 @@ namespace MSSS_StaffManagementApp_
 {
 	public partial class Form1 : Form
 	{
+		public static Dictionary<int, string> MasterFile = new Dictionary<int, string>();
+		private List<Staff> staffRecords = new List<Staff>();
+
 		public Form1()
 		{
 			InitializeComponent();
+			LoadStaffData();
+			DisplayStaffData();
 		}
-		private List<Staff> staffRecords = new List<Staff>();
-
-		public static object Instance { get; internal set; }
-
-		private void loadButton_Click(object sender, EventArgs e)
+		private void LoadStaffData()
 		{
 			string[] lines = File.ReadAllLines("staff_data.csv");
+			MasterFile.Clear();  // Clear any existing records
 
-			staffRecords.Clear();  // Clear any existing records
 			foreach (string line in lines)
 			{
 				string[] parts = line.Split(',');
-				if (parts.Length == 2)
+				if (parts.Length == 2 && int.TryParse(parts[0], out int id))
 				{
-					string id = parts[0];
 					string name = parts[1];
-					staffRecords.Add(new Staff { ID = id, Name = name });
-
-					lstAllRecords.Items.Add($"ID: {id} - Name: {name}"); ;
+					MasterFile[id] = name;  // Add to the Dictionary
 				}
 			}
 
-			lblStatus.Text = $"{staffRecords.Count} records loaded.";
+			lblStatus.Text = $"{MasterFile.Count} records loaded.";
+		}
+		private void DisplayStaffData()
+		{
+			lstAllRecords.Items.Clear();
+			foreach (var entry in MasterFile)
+			{
+				lstAllRecords.Items.Add($"ID: {entry.Key} - Name: {entry.Value}");
+			}
+		}
+		private void loadButton_Click(object sender, EventArgs e)
+		{
+			LoadStaffData();
+			DisplayStaffData();
 		}
 
 		private void btnFilter_Click(object sender, EventArgs e)
@@ -59,11 +70,37 @@ namespace MSSS_StaffManagementApp_
 
 			lblStatus.Text = $"{filteredRecords.Count} records found.";
 		}
-
+		private bool IsValidLogin(string username, string password)
+		{
+			
+			if (username == "admin" && password == "1234")
+			{
+				return true; // Login successful
+			}
+			else
+			{
+				return false; // Login failed
+			}
+		}
 		private void btnOpenAdmin_Click(object sender, EventArgs e)
 		{
-			AdminForm adminForm = new AdminForm();
-			adminForm.Show();
+			// 1. Get username and password from textbox controls (replace with your textbox names)
+			string username = UserTextBox.Text;
+			string password = pwdTextBox.Text;
+
+			// 2. Perform login validation (replace with your validation logic)
+			if (IsValidLogin(username, password))
+			{
+				// Login successful - Open AdminForm
+				AdminForm adminForm = new AdminForm();
+				adminForm.Show();
+				//this.Hide(); 
+			}
+			else
+			{
+				// Login failed - Show error message
+				MessageBox.Show("Invalid username or password!");
+			}
 		}
 	}
 }
