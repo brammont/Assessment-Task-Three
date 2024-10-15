@@ -28,5 +28,20 @@ namespace MSSS_StaffManagementApp_
 			}
 			lblStatus.Text = $"{lines.Length} records loaded.";
 		}
+
+		private void btnFilter_Click(object sender, EventArgs e)
+		{
+			string searchTerm = txtFilter.Text.ToLower();
+			var filteredRecords = lstAllRecords.Items.Cast<string>()
+				.Where(record => record.ToLower().Contains(searchTerm)).ToList();
+
+			lstFilteredRecords.Items.Clear();
+			foreach (var record in filteredRecords)
+			{
+				lstFilteredRecords.Items.Add(record);
+			}
+
+			lblStatus.Text = $"{filteredRecords.Count} records found.";
+		}
 	}
 }

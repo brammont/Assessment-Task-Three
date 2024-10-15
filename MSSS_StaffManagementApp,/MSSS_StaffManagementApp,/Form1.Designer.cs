@@ -29,7 +29,7 @@
 		private void InitializeComponent()
 		{
 			this.loadButton = new System.Windows.Forms.Button();
-			this.FilterButton = new System.Windows.Forms.Button();
+			this.btnFilter = new System.Windows.Forms.Button();
 			this.label1 = new System.Windows.Forms.Label();
 			this.lstAllRecords = new System.Windows.Forms.ListBox();
 			this.lstFilteredRecords = new System.Windows.Forms.ListBox();
@@ -53,14 +53,15 @@
 			this.loadButton.UseVisualStyleBackColor = true;
 			this.loadButton.Click += new System.EventHandler(this.loadButton_Click);
 			// 
-			// FilterButton
+			// btnFilter
 			// 
-			this.FilterButton.Location = new System.Drawing.Point(268, 23);
-			this.FilterButton.Name = "FilterButton";
-			this.FilterButton.Size = new System.Drawing.Size(75, 23);
-			this.FilterButton.TabIndex = 1;
-			this.FilterButton.Text = "Filter";
-			this.FilterButton.UseVisualStyleBackColor = true;
+			this.btnFilter.Location = new System.Drawing.Point(268, 23);
+			this.btnFilter.Name = "btnFilter";
+			this.btnFilter.Size = new System.Drawing.Size(75, 23);
+			this.btnFilter.TabIndex = 1;
+			this.btnFilter.Text = "Filter";
+			this.btnFilter.UseVisualStyleBackColor = true;
+			this.btnFilter.Click += new System.EventHandler(this.btnFilter_Click);
 			// 
 			// label1
 			// 
@@ -170,7 +171,7 @@
 			this.Controls.Add(this.lstFilteredRecords);
 			this.Controls.Add(this.lstAllRecords);
 			this.Controls.Add(this.label1);
-			this.Controls.Add(this.FilterButton);
+			this.Controls.Add(this.btnFilter);
 			this.Controls.Add(this.loadButton);
 			this.Name = "Form1";
 			this.Text = "Form1";
@@ -182,7 +183,7 @@
 		#endregion
 
 		private System.Windows.Forms.Button loadButton;
-		private System.Windows.Forms.Button FilterButton;
+		private System.Windows.Forms.Button btnFilter;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.ListBox lstFilteredRecords;
 		private System.Windows.Forms.Label label2;
