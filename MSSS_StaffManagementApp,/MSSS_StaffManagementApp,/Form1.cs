@@ -43,13 +43,15 @@ namespace MSSS_StaffManagementApp_
 		private void btnFilter_Click(object sender, EventArgs e)
 		{
 			string searchTerm = txtFilter.Text.ToLower();
-			var filteredRecords = lstAllRecords.Items.Cast<string>()
-				.Where(record => record.ToLower().Contains(searchTerm)).ToList();
+
+			var filteredRecords = staffRecords
+				.Where(record => record.ID.Contains(searchTerm) || record.Name.ToLower().Contains(searchTerm))
+				.ToList();
 
 			lstFilteredRecords.Items.Clear();
 			foreach (var record in filteredRecords)
 			{
-				lstFilteredRecords.Items.Add(record);
+				lstFilteredRecords.Items.Add($"{record.ID} - {record.Name}");
 			}
 
 			lblStatus.Text = $"{filteredRecords.Count} records found.";
