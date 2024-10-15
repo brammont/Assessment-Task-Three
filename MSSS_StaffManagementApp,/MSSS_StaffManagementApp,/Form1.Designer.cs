@@ -30,17 +30,17 @@
 		{
 			this.loadButton = new System.Windows.Forms.Button();
 			this.FilterButton = new System.Windows.Forms.Button();
-			this.listBox1 = new System.Windows.Forms.ListBox();
 			this.label1 = new System.Windows.Forms.Label();
-			this.allStaffListBox = new System.Windows.Forms.ListBox();
-			this.listBox3 = new System.Windows.Forms.ListBox();
+			this.lstAllRecords = new System.Windows.Forms.ListBox();
+			this.lstFilteredRecords = new System.Windows.Forms.ListBox();
 			this.label2 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
-			this.listBox4 = new System.Windows.Forms.ListBox();
 			this.label4 = new System.Windows.Forms.Label();
-			this.listBox5 = new System.Windows.Forms.ListBox();
 			this.button3 = new System.Windows.Forms.Button();
-			this.label5 = new System.Windows.Forms.Label();
+			this.lblStatus = new System.Windows.Forms.Label();
+			this.txtFilter = new System.Windows.Forms.TextBox();
+			this.textBox2 = new System.Windows.Forms.TextBox();
+			this.textBox3 = new System.Windows.Forms.TextBox();
 			this.SuspendLayout();
 			// 
 			// loadButton
@@ -62,14 +62,6 @@
 			this.FilterButton.Text = "Filter";
 			this.FilterButton.UseVisualStyleBackColor = true;
 			// 
-			// listBox1
-			// 
-			this.listBox1.FormattingEnabled = true;
-			this.listBox1.Location = new System.Drawing.Point(103, 25);
-			this.listBox1.Name = "listBox1";
-			this.listBox1.Size = new System.Drawing.Size(144, 17);
-			this.listBox1.TabIndex = 3;
-			// 
 			// label1
 			// 
 			this.label1.AutoSize = true;
@@ -79,21 +71,21 @@
 			this.label1.TabIndex = 4;
 			this.label1.Text = "All Staff Records:";
 			// 
-			// allStaffListBox
+			// lstAllRecords
 			// 
-			this.allStaffListBox.FormattingEnabled = true;
-			this.allStaffListBox.Location = new System.Drawing.Point(25, 105);
-			this.allStaffListBox.Name = "allStaffListBox";
-			this.allStaffListBox.Size = new System.Drawing.Size(393, 69);
-			this.allStaffListBox.TabIndex = 5;
+			this.lstAllRecords.FormattingEnabled = true;
+			this.lstAllRecords.Location = new System.Drawing.Point(25, 105);
+			this.lstAllRecords.Name = "lstAllRecords";
+			this.lstAllRecords.Size = new System.Drawing.Size(393, 69);
+			this.lstAllRecords.TabIndex = 5;
 			// 
-			// listBox3
+			// lstFilteredRecords
 			// 
-			this.listBox3.FormattingEnabled = true;
-			this.listBox3.Location = new System.Drawing.Point(25, 234);
-			this.listBox3.Name = "listBox3";
-			this.listBox3.Size = new System.Drawing.Size(393, 69);
-			this.listBox3.TabIndex = 6;
+			this.lstFilteredRecords.FormattingEnabled = true;
+			this.lstFilteredRecords.Location = new System.Drawing.Point(25, 234);
+			this.lstFilteredRecords.Name = "lstFilteredRecords";
+			this.lstFilteredRecords.Size = new System.Drawing.Size(393, 69);
+			this.lstFilteredRecords.TabIndex = 6;
 			// 
 			// label2
 			// 
@@ -113,14 +105,6 @@
 			this.label3.TabIndex = 8;
 			this.label3.Text = "Staff ID:";
 			// 
-			// listBox4
-			// 
-			this.listBox4.FormattingEnabled = true;
-			this.listBox4.Location = new System.Drawing.Point(69, 344);
-			this.listBox4.Name = "listBox4";
-			this.listBox4.Size = new System.Drawing.Size(144, 17);
-			this.listBox4.TabIndex = 9;
-			// 
 			// label4
 			// 
 			this.label4.AutoSize = true;
@@ -129,14 +113,6 @@
 			this.label4.Size = new System.Drawing.Size(38, 13);
 			this.label4.TabIndex = 10;
 			this.label4.Text = "Name:";
-			// 
-			// listBox5
-			// 
-			this.listBox5.FormattingEnabled = true;
-			this.listBox5.Location = new System.Drawing.Point(285, 342);
-			this.listBox5.Name = "listBox5";
-			this.listBox5.Size = new System.Drawing.Size(144, 17);
-			this.listBox5.TabIndex = 11;
 			// 
 			// button3
 			// 
@@ -148,31 +124,52 @@
 			this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.button3.UseVisualStyleBackColor = true;
 			// 
-			// label5
+			// lblStatus
 			// 
-			this.label5.AutoSize = true;
-			this.label5.Location = new System.Drawing.Point(22, 428);
-			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(106, 13);
-			this.label5.TabIndex = 13;
-			this.label5.Text = "Displaying X records.";
+			this.lblStatus.AutoSize = true;
+			this.lblStatus.Location = new System.Drawing.Point(22, 428);
+			this.lblStatus.Name = "lblStatus";
+			this.lblStatus.Size = new System.Drawing.Size(106, 13);
+			this.lblStatus.TabIndex = 13;
+			this.lblStatus.Text = "Displaying X records.";
+			// 
+			// txtFilter
+			// 
+			this.txtFilter.Location = new System.Drawing.Point(103, 26);
+			this.txtFilter.Name = "txtFilter";
+			this.txtFilter.Size = new System.Drawing.Size(143, 20);
+			this.txtFilter.TabIndex = 14;
+			// 
+			// textBox2
+			// 
+			this.textBox2.Location = new System.Drawing.Point(89, 340);
+			this.textBox2.Name = "textBox2";
+			this.textBox2.Size = new System.Drawing.Size(100, 20);
+			this.textBox2.TabIndex = 15;
+			// 
+			// textBox3
+			// 
+			this.textBox3.Location = new System.Drawing.Point(287, 342);
+			this.textBox3.Name = "textBox3";
+			this.textBox3.Size = new System.Drawing.Size(100, 20);
+			this.textBox3.TabIndex = 16;
 			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(441, 450);
-			this.Controls.Add(this.label5);
+			this.Controls.Add(this.textBox3);
+			this.Controls.Add(this.textBox2);
+			this.Controls.Add(this.txtFilter);
+			this.Controls.Add(this.lblStatus);
 			this.Controls.Add(this.button3);
-			this.Controls.Add(this.listBox5);
 			this.Controls.Add(this.label4);
-			this.Controls.Add(this.listBox4);
 			this.Controls.Add(this.label3);
 			this.Controls.Add(this.label2);
-			this.Controls.Add(this.listBox3);
-			this.Controls.Add(this.allStaffListBox);
+			this.Controls.Add(this.lstFilteredRecords);
+			this.Controls.Add(this.lstAllRecords);
 			this.Controls.Add(this.label1);
-			this.Controls.Add(this.listBox1);
 			this.Controls.Add(this.FilterButton);
 			this.Controls.Add(this.loadButton);
 			this.Name = "Form1";
@@ -186,17 +183,17 @@
 
 		private System.Windows.Forms.Button loadButton;
 		private System.Windows.Forms.Button FilterButton;
-		private System.Windows.Forms.ListBox listBox1;
 		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.ListBox listBox3;
+		private System.Windows.Forms.ListBox lstFilteredRecords;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label label3;
-		private System.Windows.Forms.ListBox listBox4;
 		private System.Windows.Forms.Label label4;
-		private System.Windows.Forms.ListBox listBox5;
 		private System.Windows.Forms.Button button3;
-		private System.Windows.Forms.Label label5;
-		private System.Windows.Forms.ListBox allStaffListBox;
+		private System.Windows.Forms.Label lblStatus;
+		private System.Windows.Forms.ListBox lstAllRecords;
+		private System.Windows.Forms.TextBox txtFilter;
+		private System.Windows.Forms.TextBox textBox2;
+		private System.Windows.Forms.TextBox textBox3;
 	}
 }
 

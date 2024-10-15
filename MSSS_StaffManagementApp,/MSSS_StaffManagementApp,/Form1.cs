@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+
 
 namespace MSSS_StaffManagementApp_
 {
@@ -19,7 +21,12 @@ namespace MSSS_StaffManagementApp_
 
 		private void loadButton_Click(object sender, EventArgs e)
 		{
-
+			string[] lines = File.ReadAllLines("staff_data.csv");  // CSV file path
+			foreach (string line in lines)
+			{
+				lstAllRecords.Items.Add(line);
+			}
+			lblStatus.Text = $"{lines.Length} records loaded.";
 		}
 	}
 }
