@@ -19,6 +19,9 @@ namespace MSSS_StaffManagementApp_
 			InitializeComponent();
 		}
 		private List<Staff> staffRecords = new List<Staff>();
+
+		public static object Instance { get; internal set; }
+
 		private void loadButton_Click(object sender, EventArgs e)
 		{
 			string[] lines = File.ReadAllLines("staff_data.csv");

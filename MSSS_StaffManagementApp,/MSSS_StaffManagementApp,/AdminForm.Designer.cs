@@ -35,8 +35,8 @@
 			this.txtAdminName = new System.Windows.Forms.TextBox();
 			this.btnUpdate = new System.Windows.Forms.Button();
 			this.btnDelete = new System.Windows.Forms.Button();
-			this.label4 = new System.Windows.Forms.Label();
-			this.b = new System.Windows.Forms.Button();
+			this.lblAdminStatus = new System.Windows.Forms.Label();
+			this.btnOpenMain = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// btnCreate
@@ -99,31 +99,32 @@
 			this.btnDelete.Text = "Delete";
 			this.btnDelete.UseVisualStyleBackColor = true;
 			// 
-			// label4
+			// lblAdminStatus
 			// 
-			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(30, 146);
-			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(88, 13);
-			this.label4.TabIndex = 9;
-			this.label4.Text = "Ready for action.";
+			this.lblAdminStatus.AutoSize = true;
+			this.lblAdminStatus.Location = new System.Drawing.Point(30, 146);
+			this.lblAdminStatus.Name = "lblAdminStatus";
+			this.lblAdminStatus.Size = new System.Drawing.Size(88, 13);
+			this.lblAdminStatus.TabIndex = 9;
+			this.lblAdminStatus.Text = "Ready for action.";
 			// 
-			// b
+			// btnOpenMain
 			// 
-			this.b.Location = new System.Drawing.Point(33, 162);
-			this.b.Name = "b";
-			this.b.Size = new System.Drawing.Size(105, 23);
-			this.b.TabIndex = 10;
-			this.b.Text = "Back to General GUI";
-			this.b.UseVisualStyleBackColor = true;
+			this.btnOpenMain.Location = new System.Drawing.Point(33, 162);
+			this.btnOpenMain.Name = "btnOpenMain";
+			this.btnOpenMain.Size = new System.Drawing.Size(105, 23);
+			this.btnOpenMain.TabIndex = 10;
+			this.btnOpenMain.Text = "Back to General GUI";
+			this.btnOpenMain.UseVisualStyleBackColor = true;
+			this.btnOpenMain.Click += new System.EventHandler(this.btnOpenMain_Click);
 			// 
 			// AdminForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(414, 191);
-			this.Controls.Add(this.b);
-			this.Controls.Add(this.label4);
+			this.Controls.Add(this.btnOpenMain);
+			this.Controls.Add(this.lblAdminStatus);
 			this.Controls.Add(this.btnDelete);
 			this.Controls.Add(this.btnUpdate);
 			this.Controls.Add(this.txtAdminName);
@@ -147,7 +148,7 @@
 		private System.Windows.Forms.TextBox txtAdminName;
 		private System.Windows.Forms.Button btnUpdate;
 		private System.Windows.Forms.Button btnDelete;
-		private System.Windows.Forms.Label label4;
-		private System.Windows.Forms.Button b;
+		private System.Windows.Forms.Label lblAdminStatus;
+		private System.Windows.Forms.Button btnOpenMain;
 	}
 }
