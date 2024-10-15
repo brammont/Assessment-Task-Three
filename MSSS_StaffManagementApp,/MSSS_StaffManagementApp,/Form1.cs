@@ -18,15 +18,26 @@ namespace MSSS_StaffManagementApp_
 		{
 			InitializeComponent();
 		}
-
+		private List<Staff> staffRecords = new List<Staff>();
 		private void loadButton_Click(object sender, EventArgs e)
 		{
-			string[] lines = File.ReadAllLines("staff_data.csv");  // CSV file path
+			string[] lines = File.ReadAllLines("staff_data.csv");
+
+			staffRecords.Clear();  // Clear any existing records
 			foreach (string line in lines)
 			{
-				lstAllRecords.Items.Add(line);
+				string[] parts = line.Split(',');
+				if (parts.Length == 2)
+				{
+					string id = parts[0];
+					string name = parts[1];
+					staffRecords.Add(new Staff { ID = id, Name = name });
+
+					lstAllRecords.Items.Add($"ID: {id} - Name: {name}"); ;
+				}
 			}
-			lblStatus.Text = $"{lines.Length} records loaded.";
+
+			lblStatus.Text = $"{staffRecords.Count} records loaded.";
 		}
 
 		private void btnFilter_Click(object sender, EventArgs e)
@@ -42,6 +53,12 @@ namespace MSSS_StaffManagementApp_
 			}
 
 			lblStatus.Text = $"{filteredRecords.Count} records found.";
+		}
+
+		private void btnOpenAdmin_Click(object sender, EventArgs e)
+		{
+			AdminForm adminForm = new AdminForm();
+			adminForm.Show();
 		}
 	}
 }

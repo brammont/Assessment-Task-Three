@@ -36,7 +36,7 @@
 			this.label2 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
-			this.button3 = new System.Windows.Forms.Button();
+			this.btnOpenAdmin = new System.Windows.Forms.Button();
 			this.lblStatus = new System.Windows.Forms.Label();
 			this.txtFilter = new System.Windows.Forms.TextBox();
 			this.textBox2 = new System.Windows.Forms.TextBox();
@@ -115,15 +115,16 @@
 			this.label4.TabIndex = 10;
 			this.label4.Text = "Name:";
 			// 
-			// button3
+			// btnOpenAdmin
 			// 
-			this.button3.Location = new System.Drawing.Point(25, 395);
-			this.button3.Name = "button3";
-			this.button3.Size = new System.Drawing.Size(75, 23);
-			this.button3.TabIndex = 12;
-			this.button3.Text = "Open Admin GUI";
-			this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.button3.UseVisualStyleBackColor = true;
+			this.btnOpenAdmin.Location = new System.Drawing.Point(25, 395);
+			this.btnOpenAdmin.Name = "btnOpenAdmin";
+			this.btnOpenAdmin.Size = new System.Drawing.Size(75, 23);
+			this.btnOpenAdmin.TabIndex = 12;
+			this.btnOpenAdmin.Text = "Open Admin GUI";
+			this.btnOpenAdmin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.btnOpenAdmin.UseVisualStyleBackColor = true;
+			this.btnOpenAdmin.Click += new System.EventHandler(this.btnOpenAdmin_Click);
 			// 
 			// lblStatus
 			// 
@@ -164,7 +165,7 @@
 			this.Controls.Add(this.textBox2);
 			this.Controls.Add(this.txtFilter);
 			this.Controls.Add(this.lblStatus);
-			this.Controls.Add(this.button3);
+			this.Controls.Add(this.btnOpenAdmin);
 			this.Controls.Add(this.label4);
 			this.Controls.Add(this.label3);
 			this.Controls.Add(this.label2);
@@ -189,7 +190,7 @@
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.Label label4;
-		private System.Windows.Forms.Button button3;
+		private System.Windows.Forms.Button btnOpenAdmin;
 		private System.Windows.Forms.Label lblStatus;
 		private System.Windows.Forms.ListBox lstAllRecords;
 		private System.Windows.Forms.TextBox txtFilter;
