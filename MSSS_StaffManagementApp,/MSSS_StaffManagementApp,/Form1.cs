@@ -20,8 +20,7 @@ namespace MSSS_StaffManagementApp_
 		public Form1()
 		{
 			InitializeComponent();
-			LoadStaffData();
-			DisplayStaffData();
+			LoadStaffData();			
 		}
 		private void LoadStaffData()
 		{
@@ -34,24 +33,24 @@ namespace MSSS_StaffManagementApp_
 				if (parts.Length == 2 && int.TryParse(parts[0], out int id))
 				{
 					string name = parts[1];
-					MasterFile[id] = name;  // Add to the Dictionary
+					MasterFile.Add(id, parts[1]);  // Add to the Dictionary
 				}
 			}
-
+			DisplayData();
 			lblStatus.Text = $"{MasterFile.Count} records loaded.";
 		}
-		private void DisplayStaffData()
+		// Method to display all data in ListBox1
+		private void DisplayData()
 		{
 			lstAllRecords.Items.Clear();
-			foreach (var entry in MasterFile)
+			foreach (var item in MasterFile)
 			{
-				lstAllRecords.Items.Add($"ID: {entry.Key} - Name: {entry.Value}");
+				lstAllRecords.Items.Add($"{item.Key}: {item.Value}");
 			}
 		}
 		private void loadButton_Click(object sender, EventArgs e)
 		{
-			LoadStaffData();
-			DisplayStaffData();
+			LoadStaffData();			
 		}
 
 		private void btnFilter_Click(object sender, EventArgs e)

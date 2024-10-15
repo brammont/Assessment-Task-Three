@@ -41,6 +41,8 @@
 			this.txtFilter = new System.Windows.Forms.TextBox();
 			this.UserTextBox = new System.Windows.Forms.TextBox();
 			this.pwdTextBox = new System.Windows.Forms.TextBox();
+			this.textBox1 = new System.Windows.Forms.TextBox();
+			this.textBox2 = new System.Windows.Forms.TextBox();
 			this.SuspendLayout();
 			// 
 			// loadButton
@@ -83,7 +85,7 @@
 			// lstFilteredRecords
 			// 
 			this.lstFilteredRecords.FormattingEnabled = true;
-			this.lstFilteredRecords.Location = new System.Drawing.Point(25, 234);
+			this.lstFilteredRecords.Location = new System.Drawing.Point(25, 269);
 			this.lstFilteredRecords.Name = "lstFilteredRecords";
 			this.lstFilteredRecords.Size = new System.Drawing.Size(393, 69);
 			this.lstFilteredRecords.TabIndex = 6;
@@ -91,7 +93,7 @@
 			// label2
 			// 
 			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(22, 217);
+			this.label2.Location = new System.Drawing.Point(22, 253);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(82, 13);
 			this.label2.TabIndex = 7;
@@ -100,7 +102,7 @@
 			// label3
 			// 
 			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(18, 347);
+			this.label3.Location = new System.Drawing.Point(22, 372);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(32, 13);
 			this.label3.TabIndex = 8;
@@ -109,7 +111,7 @@
 			// label4
 			// 
 			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(231, 345);
+			this.label4.Location = new System.Drawing.Point(231, 369);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(56, 13);
 			this.label4.TabIndex = 10;
@@ -117,7 +119,7 @@
 			// 
 			// btnOpenAdmin
 			// 
-			this.btnOpenAdmin.Location = new System.Drawing.Point(25, 395);
+			this.btnOpenAdmin.Location = new System.Drawing.Point(36, 405);
 			this.btnOpenAdmin.Name = "btnOpenAdmin";
 			this.btnOpenAdmin.Size = new System.Drawing.Size(75, 23);
 			this.btnOpenAdmin.TabIndex = 12;
@@ -129,7 +131,7 @@
 			// lblStatus
 			// 
 			this.lblStatus.AutoSize = true;
-			this.lblStatus.Location = new System.Drawing.Point(181, 400);
+			this.lblStatus.Location = new System.Drawing.Point(231, 415);
 			this.lblStatus.Name = "lblStatus";
 			this.lblStatus.Size = new System.Drawing.Size(106, 13);
 			this.lblStatus.TabIndex = 13;
@@ -144,24 +146,40 @@
 			// 
 			// UserTextBox
 			// 
-			this.UserTextBox.Location = new System.Drawing.Point(89, 340);
+			this.UserTextBox.Location = new System.Drawing.Point(81, 369);
 			this.UserTextBox.Name = "UserTextBox";
 			this.UserTextBox.Size = new System.Drawing.Size(100, 20);
 			this.UserTextBox.TabIndex = 15;
 			// 
 			// pwdTextBox
 			// 
-			this.pwdTextBox.Location = new System.Drawing.Point(287, 342);
+			this.pwdTextBox.Location = new System.Drawing.Point(290, 372);
 			this.pwdTextBox.Name = "pwdTextBox";
 			this.pwdTextBox.PasswordChar = '*';
 			this.pwdTextBox.Size = new System.Drawing.Size(100, 20);
 			this.pwdTextBox.TabIndex = 16;
+			// 
+			// textBox1
+			// 
+			this.textBox1.Location = new System.Drawing.Point(124, 215);
+			this.textBox1.Name = "textBox1";
+			this.textBox1.Size = new System.Drawing.Size(100, 20);
+			this.textBox1.TabIndex = 17;
+			// 
+			// textBox2
+			// 
+			this.textBox2.Location = new System.Drawing.Point(243, 215);
+			this.textBox2.Name = "textBox2";
+			this.textBox2.Size = new System.Drawing.Size(100, 20);
+			this.textBox2.TabIndex = 18;
 			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(441, 450);
+			this.Controls.Add(this.textBox2);
+			this.Controls.Add(this.textBox1);
 			this.Controls.Add(this.pwdTextBox);
 			this.Controls.Add(this.UserTextBox);
 			this.Controls.Add(this.txtFilter);
@@ -197,6 +215,8 @@
 		private System.Windows.Forms.TextBox txtFilter;
 		private System.Windows.Forms.TextBox UserTextBox;
 		private System.Windows.Forms.TextBox pwdTextBox;
+		private System.Windows.Forms.TextBox textBox1;
+		private System.Windows.Forms.TextBox textBox2;
 	}
 }
 
