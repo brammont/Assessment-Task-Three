@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>General & Admin GUI Prototype</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- General GUI -->
+    <div class="window" id="general-gui">
+        <div class="title-bar">
+            <span class="title">General GUI - Staff Management</span>
+            <div class="buttons">
+                <span class="minimize"></span>
+                <span class="maximize"></span>
+                <span class="close"></span>
+            </div>
+        </div>
+        <div class="content">
+            <div class="controls">
+                <button class="btn">Load Data</button>
+                <input type="text" class="textbox" placeholder="Filter by ID or Name">
+                <button class="btn">Filter</button>
+            </div>
+            <div class="listbox-container">
+                <label for="listbox1">All Staff Records:</label>
+                <select id="listbox1" class="listbox" multiple>
+                    <!-- Placeholder for staff records -->
+                </select>
+            </div>
+            <div class="listbox-container">
+                <label for="listbox2">Filtered Results:</label>
+                <select id="listbox2" class="listbox" multiple>
+                    <!-- Placeholder for filtered staff records -->
+                </select>
+            </div>
+            <div class="details">
+                <label for="staff-id">Staff ID:</label>
+                <input type="text" id="staff-id" class="textbox" readonly>
+                <label for="staff-name">Name:</label>
+                <input type="text" id="staff-name" class="textbox" readonly>
+            </div>
+            <button class="btn" id="open-admin">Open Admin GUI</button>
+            <div class="status-label">
+                Displaying X records.
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin GUI -->
+    <div class="window" id="admin-gui" style="display:none;">
+        <div class="title-bar">
+            <span class="title">Admin GUI - Staff Management</span>
+            <div class="buttons">
+                <span class="minimize"></span>
+                <span class="maximize"></span>
+                <span class="close"></span>
+            </div>
+        </div>
+        <div class="content">
+            <div class="details">
+                <label for="admin-id">Staff ID:</label>
+                <input type="text" id="admin-id" class="textbox">
+                <label for="admin-name">Name:</label>
+                <input type="text" id="admin-name" class="textbox">
+                <label for="admin-phone">Mobile Number:</label>
+                <input type="text" id="admin-phone" class="textbox">
+            </div>
+            <div class="controls">
+                <button class="btn">Create</button>
+                <button class="btn">Update</button>
+                <button class="btn">Delete</button>
+            </div>
+            <div class="status-label">
+                Ready for action.
+            </div>
+            <button class="btn" id="back-general">Back to General GUI</button>
+        </div>
+    </div>
+
+    <script>
+        const adminGUI = document.getElementById('admin-gui');
+        const generalGUI = document.getElementById('general-gui');
+        const openAdminButton = document.getElementById('open-admin');
+        const backGeneralButton = document.getElementById('back-general');
+
+        openAdminButton.addEventListener('click', () => {
+            generalGUI.style.display = 'none';
+            adminGUI.style.display = 'block';
+        });
+
+        backGeneralButton.addEventListener('click', () => {
+            adminGUI.style.display = 'none';
+            generalGUI.style.display = 'block';
+        });
+    </script>
+</body>
+</html>
