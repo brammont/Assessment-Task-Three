@@ -32,17 +32,21 @@
 			this.btnFilter = new System.Windows.Forms.Button();
 			this.label1 = new System.Windows.Forms.Label();
 			this.lstAllRecords = new System.Windows.Forms.ListBox();
-			this.lstFilteredRecords = new System.Windows.Forms.ListBox();
 			this.label2 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
 			this.btnOpenAdmin = new System.Windows.Forms.Button();
 			this.lblStatus = new System.Windows.Forms.Label();
 			this.txtFilter = new System.Windows.Forms.TextBox();
-			this.UserTextBox = new System.Windows.Forms.TextBox();
+			this.txtStaffId = new System.Windows.Forms.TextBox();
 			this.pwdTextBox = new System.Windows.Forms.TextBox();
-			this.textBox1 = new System.Windows.Forms.TextBox();
-			this.textBox2 = new System.Windows.Forms.TextBox();
+			this.lstFilteredRecords = new System.Windows.Forms.ListBox();
+			this.txtFilterID = new System.Windows.Forms.TextBox();
+			this.txtFilterName = new System.Windows.Forms.TextBox();
+			this.label5 = new System.Windows.Forms.Label();
+			this.label6 = new System.Windows.Forms.Label();
+			this.label7 = new System.Windows.Forms.Label();
+			this.txtStaffName = new System.Windows.Forms.TextBox();
 			this.SuspendLayout();
 			// 
 			// loadButton
@@ -82,18 +86,10 @@
 			this.lstAllRecords.Size = new System.Drawing.Size(393, 69);
 			this.lstAllRecords.TabIndex = 5;
 			// 
-			// lstFilteredRecords
-			// 
-			this.lstFilteredRecords.FormattingEnabled = true;
-			this.lstFilteredRecords.Location = new System.Drawing.Point(25, 269);
-			this.lstFilteredRecords.Name = "lstFilteredRecords";
-			this.lstFilteredRecords.Size = new System.Drawing.Size(393, 69);
-			this.lstFilteredRecords.TabIndex = 6;
-			// 
 			// label2
 			// 
 			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(22, 253);
+			this.label2.Location = new System.Drawing.Point(29, 246);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(82, 13);
 			this.label2.TabIndex = 7;
@@ -102,11 +98,11 @@
 			// label3
 			// 
 			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(22, 372);
+			this.label3.Location = new System.Drawing.Point(22, 362);
 			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(32, 13);
+			this.label3.Size = new System.Drawing.Size(46, 13);
 			this.label3.TabIndex = 8;
-			this.label3.Text = "User:";
+			this.label3.Text = "Staff ID:";
 			// 
 			// label4
 			// 
@@ -119,7 +115,7 @@
 			// 
 			// btnOpenAdmin
 			// 
-			this.btnOpenAdmin.Location = new System.Drawing.Point(36, 405);
+			this.btnOpenAdmin.Location = new System.Drawing.Point(75, 415);
 			this.btnOpenAdmin.Name = "btnOpenAdmin";
 			this.btnOpenAdmin.Size = new System.Drawing.Size(75, 23);
 			this.btnOpenAdmin.TabIndex = 12;
@@ -143,45 +139,92 @@
 			this.txtFilter.Name = "txtFilter";
 			this.txtFilter.Size = new System.Drawing.Size(143, 20);
 			this.txtFilter.TabIndex = 14;
+			this.txtFilter.TextChanged += new System.EventHandler(this.txtFilter_TextChanged);
 			// 
-			// UserTextBox
+			// txtStaffId
 			// 
-			this.UserTextBox.Location = new System.Drawing.Point(81, 369);
-			this.UserTextBox.Name = "UserTextBox";
-			this.UserTextBox.Size = new System.Drawing.Size(100, 20);
-			this.UserTextBox.TabIndex = 15;
+			this.txtStaffId.Location = new System.Drawing.Point(91, 355);
+			this.txtStaffId.Name = "txtStaffId";
+			this.txtStaffId.Size = new System.Drawing.Size(100, 20);
+			this.txtStaffId.TabIndex = 15;
 			// 
 			// pwdTextBox
 			// 
-			this.pwdTextBox.Location = new System.Drawing.Point(290, 372);
+			this.pwdTextBox.Location = new System.Drawing.Point(305, 366);
 			this.pwdTextBox.Name = "pwdTextBox";
 			this.pwdTextBox.PasswordChar = '*';
 			this.pwdTextBox.Size = new System.Drawing.Size(100, 20);
 			this.pwdTextBox.TabIndex = 16;
 			// 
-			// textBox1
+			// lstFilteredRecords
 			// 
-			this.textBox1.Location = new System.Drawing.Point(124, 215);
-			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(100, 20);
-			this.textBox1.TabIndex = 17;
+			this.lstFilteredRecords.FormattingEnabled = true;
+			this.lstFilteredRecords.Location = new System.Drawing.Point(25, 269);
+			this.lstFilteredRecords.Name = "lstFilteredRecords";
+			this.lstFilteredRecords.Size = new System.Drawing.Size(393, 69);
+			this.lstFilteredRecords.TabIndex = 6;
 			// 
-			// textBox2
+			// txtFilterID
 			// 
-			this.textBox2.Location = new System.Drawing.Point(243, 215);
-			this.textBox2.Name = "textBox2";
-			this.textBox2.Size = new System.Drawing.Size(100, 20);
-			this.textBox2.TabIndex = 18;
+			this.txtFilterID.Location = new System.Drawing.Point(164, 204);
+			this.txtFilterID.Name = "txtFilterID";
+			this.txtFilterID.Size = new System.Drawing.Size(100, 20);
+			this.txtFilterID.TabIndex = 17;
+			// 
+			// txtFilterName
+			// 
+			this.txtFilterName.Location = new System.Drawing.Point(318, 204);
+			this.txtFilterName.Name = "txtFilterName";
+			this.txtFilterName.Size = new System.Drawing.Size(100, 20);
+			this.txtFilterName.TabIndex = 18;
+			// 
+			// label5
+			// 
+			this.label5.AutoSize = true;
+			this.label5.Location = new System.Drawing.Point(123, 207);
+			this.label5.Name = "label5";
+			this.label5.Size = new System.Drawing.Size(21, 13);
+			this.label5.TabIndex = 19;
+			this.label5.Text = "ID:";
+			// 
+			// label6
+			// 
+			this.label6.AutoSize = true;
+			this.label6.Location = new System.Drawing.Point(277, 207);
+			this.label6.Name = "label6";
+			this.label6.Size = new System.Drawing.Size(35, 13);
+			this.label6.TabIndex = 20;
+			this.label6.Text = "Name";
+			// 
+			// label7
+			// 
+			this.label7.AutoSize = true;
+			this.label7.Location = new System.Drawing.Point(22, 388);
+			this.label7.Name = "label7";
+			this.label7.Size = new System.Drawing.Size(63, 13);
+			this.label7.TabIndex = 21;
+			this.label7.Text = "Staff Name:";
+			// 
+			// txtStaffName
+			// 
+			this.txtStaffName.Location = new System.Drawing.Point(91, 385);
+			this.txtStaffName.Name = "txtStaffName";
+			this.txtStaffName.Size = new System.Drawing.Size(100, 20);
+			this.txtStaffName.TabIndex = 22;
 			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(441, 450);
-			this.Controls.Add(this.textBox2);
-			this.Controls.Add(this.textBox1);
+			this.Controls.Add(this.txtStaffName);
+			this.Controls.Add(this.label7);
+			this.Controls.Add(this.label6);
+			this.Controls.Add(this.label5);
+			this.Controls.Add(this.txtFilterName);
+			this.Controls.Add(this.txtFilterID);
 			this.Controls.Add(this.pwdTextBox);
-			this.Controls.Add(this.UserTextBox);
+			this.Controls.Add(this.txtStaffId);
 			this.Controls.Add(this.txtFilter);
 			this.Controls.Add(this.lblStatus);
 			this.Controls.Add(this.btnOpenAdmin);
@@ -205,7 +248,6 @@
 		private System.Windows.Forms.Button loadButton;
 		private System.Windows.Forms.Button btnFilter;
 		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.ListBox lstFilteredRecords;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.Label label4;
@@ -213,10 +255,15 @@
 		private System.Windows.Forms.Label lblStatus;
 		private System.Windows.Forms.ListBox lstAllRecords;
 		private System.Windows.Forms.TextBox txtFilter;
-		private System.Windows.Forms.TextBox UserTextBox;
+		private System.Windows.Forms.TextBox txtStaffId;
 		private System.Windows.Forms.TextBox pwdTextBox;
-		private System.Windows.Forms.TextBox textBox1;
-		private System.Windows.Forms.TextBox textBox2;
+		private System.Windows.Forms.ListBox lstFilteredRecords;
+		private System.Windows.Forms.TextBox txtFilterID;
+		private System.Windows.Forms.TextBox txtFilterName;
+		private System.Windows.Forms.Label label5;
+		private System.Windows.Forms.Label label6;
+		private System.Windows.Forms.Label label7;
+		private System.Windows.Forms.TextBox txtStaffName;
 	}
 }
 

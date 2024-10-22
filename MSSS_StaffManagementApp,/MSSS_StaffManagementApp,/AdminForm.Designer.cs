@@ -37,11 +37,12 @@
 			this.btnDelete = new System.Windows.Forms.Button();
 			this.lblAdminStatus = new System.Windows.Forms.Label();
 			this.btnOpenMain = new System.Windows.Forms.Button();
+			this.listBox1 = new System.Windows.Forms.ListBox();
 			this.SuspendLayout();
 			// 
 			// btnCreate
 			// 
-			this.btnCreate.Location = new System.Drawing.Point(33, 99);
+			this.btnCreate.Location = new System.Drawing.Point(33, 167);
 			this.btnCreate.Name = "btnCreate";
 			this.btnCreate.Size = new System.Drawing.Size(75, 23);
 			this.btnCreate.TabIndex = 0;
@@ -83,7 +84,7 @@
 			// 
 			// btnUpdate
 			// 
-			this.btnUpdate.Location = new System.Drawing.Point(118, 99);
+			this.btnUpdate.Location = new System.Drawing.Point(118, 166);
 			this.btnUpdate.Name = "btnUpdate";
 			this.btnUpdate.Size = new System.Drawing.Size(75, 23);
 			this.btnUpdate.TabIndex = 7;
@@ -92,7 +93,7 @@
 			// 
 			// btnDelete
 			// 
-			this.btnDelete.Location = new System.Drawing.Point(204, 99);
+			this.btnDelete.Location = new System.Drawing.Point(204, 165);
 			this.btnDelete.Name = "btnDelete";
 			this.btnDelete.Size = new System.Drawing.Size(75, 23);
 			this.btnDelete.TabIndex = 8;
@@ -102,7 +103,7 @@
 			// lblAdminStatus
 			// 
 			this.lblAdminStatus.AutoSize = true;
-			this.lblAdminStatus.Location = new System.Drawing.Point(30, 146);
+			this.lblAdminStatus.Location = new System.Drawing.Point(30, 206);
 			this.lblAdminStatus.Name = "lblAdminStatus";
 			this.lblAdminStatus.Size = new System.Drawing.Size(88, 13);
 			this.lblAdminStatus.TabIndex = 9;
@@ -110,7 +111,7 @@
 			// 
 			// btnOpenMain
 			// 
-			this.btnOpenMain.Location = new System.Drawing.Point(33, 162);
+			this.btnOpenMain.Location = new System.Drawing.Point(33, 223);
 			this.btnOpenMain.Name = "btnOpenMain";
 			this.btnOpenMain.Size = new System.Drawing.Size(105, 23);
 			this.btnOpenMain.TabIndex = 10;
@@ -118,11 +119,21 @@
 			this.btnOpenMain.UseVisualStyleBackColor = true;
 			this.btnOpenMain.Click += new System.EventHandler(this.btnOpenMain_Click);
 			// 
+			// listBox1
+			// 
+			this.listBox1.FormattingEnabled = true;
+			this.listBox1.Location = new System.Drawing.Point(33, 97);
+			this.listBox1.Name = "listBox1";
+			this.listBox1.Size = new System.Drawing.Size(246, 43);
+			this.listBox1.TabIndex = 11;
+			this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+			// 
 			// AdminForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(414, 191);
+			this.ClientSize = new System.Drawing.Size(414, 256);
+			this.Controls.Add(this.listBox1);
 			this.Controls.Add(this.btnOpenMain);
 			this.Controls.Add(this.lblAdminStatus);
 			this.Controls.Add(this.btnDelete);
@@ -150,5 +161,6 @@
 		private System.Windows.Forms.Button btnDelete;
 		private System.Windows.Forms.Label lblAdminStatus;
 		private System.Windows.Forms.Button btnOpenMain;
+		private System.Windows.Forms.ListBox listBox1;
 	}
 }
