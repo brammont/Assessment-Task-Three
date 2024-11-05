@@ -1,0 +1,23 @@
+﻿<Window x:Class="StaffManager_Dictionary.AdminWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Admin Panel" Height="300" Width="400">
+    <Grid Margin="10">
+        <StackPanel>
+            <!-- Staff ID Field -->
+            <Label Content="Staff ID:"/>
+            <TextBox Name="TxtStaffID" IsReadOnly="True" Width="200"/>
+
+            <!-- Staff Name Field -->
+            <Label Content="Staff Name:"/>
+            <TextBox Name="TxtStaffName" Width="200"/>
+
+            <!-- Action Buttons -->
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+                <Button Content="Update" Width="75" Margin="5"/>
+                <Button Content="Delete" Width="75" Margin="5"/>
+                <Button Content="Create" Width="75" Margin="5"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
