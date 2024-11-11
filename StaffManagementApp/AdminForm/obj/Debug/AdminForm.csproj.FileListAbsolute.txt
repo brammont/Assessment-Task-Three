@@ -1,0 +1,9 @@
+C:\Users\30085203\Documents\LocalDev\Assessment-Task-Three\MSSS_StaffManagementApp,\AdminForm\bin\Debug\AdminForm.exe.config
+C:\Users\30085203\Documents\LocalDev\Assessment-Task-Three\MSSS_StaffManagementApp,\AdminForm\bin\Debug\AdminForm.exe
+C:\Users\30085203\Documents\LocalDev\Assessment-Task-Three\MSSS_StaffManagementApp,\AdminForm\bin\Debug\AdminForm.pdb
+C:\Users\30085203\Documents\LocalDev\Assessment-Task-Three\MSSS_StaffManagementApp,\AdminForm\obj\Debug\AdminForm.csproj.AssemblyReference.cache
+C:\Users\30085203\Documents\LocalDev\Assessment-Task-Three\MSSS_StaffManagementApp,\AdminForm\obj\Debug\AdminForm.Properties.Resources.resources
+C:\Users\30085203\Documents\LocalDev\Assessment-Task-Three\MSSS_StaffManagementApp,\AdminForm\obj\Debug\AdminForm.csproj.GenerateResource.cache
+C:\Users\30085203\Documents\LocalDev\Assessment-Task-Three\MSSS_StaffManagementApp,\AdminForm\obj\Debug\AdminForm.csproj.CoreCompileInputs.cache
+C:\Users\30085203\Documents\LocalDev\Assessment-Task-Three\MSSS_StaffManagementApp,\AdminForm\obj\Debug\AdminForm.exe
+C:\Users\30085203\Documents\LocalDev\Assessment-Task-Three\MSSS_StaffManagementApp,\AdminForm\obj\Debug\AdminForm.pdb
