@@ -28,22 +28,23 @@ namespace MSSS_StaffManagementApp_
 		private void LoadStaffData()
 		{
             Stopwatch stopwatch = new Stopwatch();
-            stopwatch.Start(); // Start timing
+            stopwatch.Start();
 
+            // Buffered reading with StreamReader
             using (StreamReader sr = new StreamReader("staff_data.csv"))
             {
-                while (!sr.EndOfStream)
+                string line;
+                while ((line = sr.ReadLine()) != null)
                 {
-                    var line = sr.ReadLine();
                     var parts = line.Split(',');
                     int id = int.Parse(parts[0]);
                     string name = parts[1];
-                    MasterFile[id] = name; // Add to Dictionary
+                    MasterFile[id] = name;
                 }
             }
 
-            stopwatch.Stop(); // Stop timing
-            Console.WriteLine("Time taken to read file: " + stopwatch.ElapsedMilliseconds + " ms");
+            stopwatch.Stop();
+            Console.WriteLine("Optimized Time taken to read file: " + stopwatch.ElapsedMilliseconds + " ms");
             try
 			{
 				string[] lines = File.ReadAllLines("staff_data.csv");

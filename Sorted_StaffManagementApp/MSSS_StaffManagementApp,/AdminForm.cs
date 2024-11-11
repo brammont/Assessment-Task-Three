@@ -144,19 +144,19 @@ namespace MSSS_StaffManagementApp_
         private void SaveStaffData()
         {
             Stopwatch stopwatch = new Stopwatch();
-            stopwatch.Start(); // Start timing
+            stopwatch.Start();
 
-            using (StreamReader sr = new StreamReader("staff_data.csv"))
+            // Buffered writing with StreamWriter
+            using (StreamWriter sw = new StreamWriter("staff_data.csv"))
             {
-                while (!sr.EndOfStream)
+                foreach (var entry in MasterFile)
                 {
-                    var line = sr.ReadLine();
-                    var parts = line.Split(',');
-                    int id = int.Parse(parts[0]);
-                    string name = parts[1];
-                    MasterFile[id] = name; // Add to Dictionary
+                    sw.WriteLine($"{entry.Key},{entry.Value}");
                 }
             }
+
+            stopwatch.Stop();
+            Console.WriteLine("Optimized Time taken to write file: " + stopwatch.ElapsedMilliseconds + " ms");
 
             stopwatch.Stop(); // Stop timing
             Console.WriteLine("Time taken to read file: " + stopwatch.ElapsedMilliseconds + " ms");
