@@ -117,20 +117,21 @@ namespace MSSS_StaffManagementApp_
 		// Open AdminForm when Alt + A is pressed
 		private void OpenAdminForm()
 		{
-			string id = txtStaffId.Text;
-			string name = txtStaffName.Text;
-			int x = int.Parse(id);
+          
+			string id = txtFilterID.Text;
+			string name = txtFilterName.Text;
+			//int x = int.Parse(id);
 			if (id == "77" && string.IsNullOrEmpty(name))
 			{
-				AdminForm adminForm = new AdminForm(77,"");
+				AdminForm adminForm = new AdminForm(int.Parse(id), "");
 				adminForm.ShowDialog();
 			}
 			else
 			{
-				AdminForm adminForm = new AdminForm(x, name);
+				AdminForm adminForm = new AdminForm(int.Parse(id), name);
 				adminForm.ShowDialog();
 			}
-		}
+        }
 		private void btnFilter_Click(object sender, EventArgs e)
 		{
 			string searchTerm = txtFilter.Text.ToLower();
@@ -147,38 +148,24 @@ namespace MSSS_StaffManagementApp_
 
 			lblStatus.Text = $"{filteredRecords.Count} records found.";
 		}
-		private bool IsValidLogin(string username, string password)
-		{
-			
-			if (username == "admin" && password == "1234")
-			{
-				return true; // Login successful
-			}
-			else
-			{
-				return false; // Login failed
-			}
-		}
-		private void btnOpenAdmin_Click(object sender, EventArgs e)
-		{
-			// 1. Get username and password from textbox controls (replace with your textbox names)
-			string username = txtStaffId.Text;
-			string password = pwdTextBox.Text;
 
-			// 2. Perform login validation (replace with your validation logic)
-			if (IsValidLogin(username, password))
-			{
-				// Login successful - Open AdminForm
-				AdminForm adminForm = new AdminForm(1234,"Admin");
-				adminForm.Show();
-				//this.Hide(); 
-			}
-			else
-			{
-				// Login failed - Show error message
-				MessageBox.Show("Invalid username or password!");
-			}
-		}
+        private void lstFilteredRecords_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Check if an item is selected
+            if (lstFilteredRecords.SelectedItem != null)
+            {
+                string selectedItem = lstFilteredRecords.SelectedItem.ToString();
+                var parts = selectedItem.Split(new[] { ':' }, 2);
+                if (parts.Length == 2)
+                {
+                    
+                    txtFilterID.Text = parts[0].Trim();
+                    txtFilterName.Text = parts[1].Trim();                    
+                }
+                
+            }
+            
+        }
 
-	}
+    }
 }

@@ -8,20 +8,23 @@ namespace MSSS_StaffManagementApp_
 {
 	public partial class AdminForm : Form
 	{
-		public AdminForm(int staffId, string staffName)
+        public static Dictionary<int, string> MasterFile = new Dictionary<int, string>();
+        private List<Staff> staffRecords = new List<Staff>();
+        int initicalId;
+        public AdminForm(int staffId, string staffName)
 		{
 			InitializeComponent();
 			LoadStaffData();
-
-			// Set the staff details in text boxes
-			txtAdminID.Text = staffId.ToString();
+            string initicalName = staffName;
+            initicalId = staffId;
+            // Set the staff details in text boxes
+            txtAdminID.Text = staffId.ToString();
 			txtAdminName.Text = staffName;
 		}
+        
 
-		public static Dictionary<int, string> MasterFile = new Dictionary<int, string>();
-		private List<Staff> staffRecords = new List<Staff>();
 
-		private void LoadStaffData()
+        private void LoadStaffData()
 		{
 			string[] lines = File.ReadAllLines("staff_data.csv");
 			MasterFile.Clear();  // Clear any existing records
@@ -73,11 +76,77 @@ namespace MSSS_StaffManagementApp_
 		private void btnOpenMain_Click(object sender, EventArgs e)
 		{
 			this.Close();
-		}
 
-		private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-		{
-			// Logic for when a listbox item is selected, if needed
 		}
-	}
+        // Method to update a staff record
+        private void UpdateStaffRecord()
+        {
+            // Parse the ID from the text box
+            if (int.TryParse(txtAdminID.Text, out int id) && !string.IsNullOrWhiteSpace(txtAdminName.Text))
+            {
+                // Check if the ID exists in MasterFile
+                if (MasterFile.ContainsKey(id))
+                {
+                    // Update the name for the existing ID
+                    MasterFile[id] = txtAdminName.Text.Trim();
+
+                    // Save the updated records back to the CSV file
+                    SaveStaffData();
+
+                    // Display a success message and refresh the display
+                    lblAdminStatus.Text = "Record updated successfully.";
+                    DisplayData();
+                }
+                else
+                {
+                    // If the ID doesn't exist, display an error message
+                    lblAdminStatus.Text = "Record not found. Update failed.";
+                }
+            }
+            else
+            {
+                // If the ID or Name is invalid, display an error message
+                lblAdminStatus.Text = "Invalid ID or Name.";
+            }
+        }
+
+        // Method to delete a staff record
+        private void DeleteStaffRecord()
+        {
+            if (int.TryParse(txtAdminID.Text, out int id))
+            {
+                if (MasterFile.ContainsKey(id))
+                {
+                    MasterFile.Remove(id); // Remove the record
+                    SaveStaffData(); // Save changes to the CSV file
+                    lblAdminStatus.Text = "Record deleted successfully.";
+                    DisplayData(); // Refresh the displayed data
+                }
+                else
+                {
+                    lblAdminStatus.Text = "Record not found. Deletion failed.";
+                }
+            }
+            else
+            {
+                lblAdminStatus.Text = "Invalid ID.";
+            }
+        }
+        // Method to save updated MasterFile data back to the CSV file
+        private void SaveStaffData()
+        {
+            List<string> lines = MasterFile.Select(item => $"{item.Key},{item.Value}").ToList();
+            File.WriteAllLines("staff_data.csv", lines);
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            UpdateStaffRecord();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            DeleteStaffRecord();
+        }
+    }
 }

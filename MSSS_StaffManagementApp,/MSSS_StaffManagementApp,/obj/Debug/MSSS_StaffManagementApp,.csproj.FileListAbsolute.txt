@@ -9,3 +9,14 @@ C:\Users\30085203\Documents\LocalDev\Assessment-Task-Three\MSSS_StaffManagementA
 C:\Users\30085203\Documents\LocalDev\Assessment-Task-Three\MSSS_StaffManagementApp,\MSSS_StaffManagementApp,\obj\Debug\MSSS_StaffManagementApp,.csproj.CoreCompileInputs.cache
 C:\Users\30085203\Documents\LocalDev\Assessment-Task-Three\MSSS_StaffManagementApp,\MSSS_StaffManagementApp,\obj\Debug\MSSS_StaffManagementApp,.exe
 C:\Users\30085203\Documents\LocalDev\Assessment-Task-Three\MSSS_StaffManagementApp,\MSSS_StaffManagementApp,\obj\Debug\MSSS_StaffManagementApp,.pdb
+C:\Users\mazue\Documents\GitHub\Assessment-Task-Three\MSSS_StaffManagementApp,\MSSS_StaffManagementApp,\obj\Debug\MSSS_StaffManagementApp,.csproj.AssemblyReference.cache
+C:\Users\mazue\Documents\GitHub\Assessment-Task-Three\MSSS_StaffManagementApp,\MSSS_StaffManagementApp,\obj\Debug\MSSS_StaffManagementApp_.AdminForm.resources
+C:\Users\mazue\Documents\GitHub\Assessment-Task-Three\MSSS_StaffManagementApp,\MSSS_StaffManagementApp,\obj\Debug\MSSS_StaffManagementApp_.Form1.resources
+C:\Users\mazue\Documents\GitHub\Assessment-Task-Three\MSSS_StaffManagementApp,\MSSS_StaffManagementApp,\obj\Debug\MSSS_StaffManagementApp_.Properties.Resources.resources
+C:\Users\mazue\Documents\GitHub\Assessment-Task-Three\MSSS_StaffManagementApp,\MSSS_StaffManagementApp,\obj\Debug\MSSS_StaffManagementApp,.csproj.GenerateResource.cache
+C:\Users\mazue\Documents\GitHub\Assessment-Task-Three\MSSS_StaffManagementApp,\MSSS_StaffManagementApp,\obj\Debug\MSSS_StaffManagementApp,.csproj.CoreCompileInputs.cache
+C:\Users\mazue\Documents\GitHub\Assessment-Task-Three\MSSS_StaffManagementApp,\MSSS_StaffManagementApp,\bin\Debug\MSSS_StaffManagementApp,.exe.config
+C:\Users\mazue\Documents\GitHub\Assessment-Task-Three\MSSS_StaffManagementApp,\MSSS_StaffManagementApp,\bin\Debug\MSSS_StaffManagementApp,.exe
+C:\Users\mazue\Documents\GitHub\Assessment-Task-Three\MSSS_StaffManagementApp,\MSSS_StaffManagementApp,\bin\Debug\MSSS_StaffManagementApp,.pdb
+C:\Users\mazue\Documents\GitHub\Assessment-Task-Three\MSSS_StaffManagementApp,\MSSS_StaffManagementApp,\obj\Debug\MSSS_StaffManagementApp,.exe
+C:\Users\mazue\Documents\GitHub\Assessment-Task-Three\MSSS_StaffManagementApp,\MSSS_StaffManagementApp,\obj\Debug\MSSS_StaffManagementApp,.pdb
