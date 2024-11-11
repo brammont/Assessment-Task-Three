@@ -43,7 +43,11 @@ namespace MSSS_StaffManagementApp_
 				DisplayData();
 				lblStatus.Text = $"{MasterFile.Count} records loaded.";
 			}
-			catch (Exception ex)
+            catch (FileNotFoundException ex)
+            {
+                MessageBox.Show("Data file not found. Please ensure 'staff_data.csv' is in the correct location.", "File Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
 			{
 				MessageBox.Show($"Error loading data: {ex.Message}");
 			}
@@ -51,50 +55,64 @@ namespace MSSS_StaffManagementApp_
 		// Method to display all data in ListBox1 (read-only ListBox for all records)
 		private void DisplayData()
 		{
-			lstAllRecords.Items.Clear();
-			foreach (var item in MasterFile)
-			{
-				lstAllRecords.Items.Add($"{item.Key}: {item.Value}");
-			}
-		}
+            try
+            {
+                lstAllRecords.Items.Clear();
+                foreach (var item in MasterFile)
+                {
+                    lstAllRecords.Items.Add($"{item.Key}: {item.Value}");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error displaying data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         // Filter data based on text entered in txtFilter (real-time filtering)
         private void txtFilter_TextChanged(object sender, EventArgs e)
         {
-            string filter = txtFilter.Text.Trim().ToLower();
-            lstFilteredRecords.Items.Clear(); // Clear the ListBox before filtering
-
-            // Check if the filter input is an integer
-            if (int.TryParse(filter, out int idFilter))
+            try
             {
-                // Filter by ID if the input is an integer
-                var filteredById = MasterFile
-                    .Where(x => x.Key == idFilter)
-                    .ToList();
+                string filter = txtFilter.Text.Trim().ToLower();
+                lstFilteredRecords.Items.Clear();
 
-                foreach (var item in filteredById)
+                if (int.TryParse(filter, out int idFilter))
                 {
-                    lstFilteredRecords.Items.Add($"{item.Key}: {item.Value}");
+                    var filteredById = MasterFile.Where(x => x.Key == idFilter).ToList();
+                    foreach (var item in filteredById)
+                    {
+                        lstFilteredRecords.Items.Add($"{item.Key}: {item.Value}");
+                    }
+                    lblStatus.Text = $"{filteredById.Count} record(s) found by ID.";
                 }
-
-                lblStatus.Text = $"{filteredById.Count} record(s) found by ID.";
+                else
+                {
+                    var filteredByName = MasterFile.Where(x => x.Value.ToLower().Contains(filter)).ToList();
+                    foreach (var item in filteredByName)
+                    {
+                        lstFilteredRecords.Items.Add($"{item.Key}: {item.Value}");
+                    }
+                    lblStatus.Text = $"{filteredByName.Count} record(s) found by Name.";
+                }
             }
-            else
+            catch (Exception ex)
             {
-                // Filter by Name if the input is not an integer
-                var filteredByName = MasterFile
-                    .Where(x => x.Value.ToLower().Contains(filter))
-                    .ToList();
-
-                foreach (var item in filteredByName)
-                {
-                    lstFilteredRecords.Items.Add($"{item.Key}: {item.Value}");
-                }
-
-                lblStatus.Text = $"{filteredByName.Count} record(s) found by Name.";
+                MessageBox.Show($"Error filtering data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-
+        //Filter Button funtion 
+        private void btnFilter_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                txtFilter_TextChanged(sender, e);  // Reuse filtering logic with error handling in place
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error applying filter: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        //load all data
         private void loadButton_Click(object sender, EventArgs e)
 		{
 			LoadStaffData();			
@@ -105,8 +123,7 @@ namespace MSSS_StaffManagementApp_
 			txtFilterName.Clear();
 			txtFilterName.Focus();
 		}
-
-		// Method to clear and focus the ID filter text box using Ctrl + I
+        // Method to clear and focus the ID filter text box using Ctrl + I
 		private void ClearAndFocusIDBox()
 		{
 			txtFilterID.Clear();
@@ -132,8 +149,7 @@ namespace MSSS_StaffManagementApp_
 			}
 			return base.ProcessCmdKey(ref msg, keyData);
 		}
-
-		// Open AdminForm when Alt + A is pressed
+        // Open AdminForm when Alt + A is pressed
 		private void OpenAdminForm()
 		{
           
@@ -144,24 +160,7 @@ namespace MSSS_StaffManagementApp_
             LoadStaffData();
 
         }
-		private void btnFilter_Click(object sender, EventArgs e)
-		{
-			string searchTerm = txtFilter.Text.ToLower();
-
-			var filteredRecords = staffRecords
-				.Where(record => record.ID.Contains(searchTerm) || record.Name.ToLower().Contains(searchTerm))
-				.ToList();
-
-			lstFilteredRecords.Items.Clear();
-			foreach (var record in filteredRecords)
-			{
-				lstFilteredRecords.Items.Add($"{record.ID} - {record.Name}");
-			}
-
-			lblStatus.Text = $"{filteredRecords.Count} records found.";
-		}
-
-        private void lstFilteredRecords_SelectedIndexChanged(object sender, EventArgs e)
+		private void lstFilteredRecords_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Check if an item is selected
             if (lstFilteredRecords.SelectedItem != null)
@@ -178,7 +177,6 @@ namespace MSSS_StaffManagementApp_
             }
             
         }
-
-       
+               
     }
 }
