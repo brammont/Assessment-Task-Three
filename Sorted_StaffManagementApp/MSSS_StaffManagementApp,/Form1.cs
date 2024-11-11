@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Diagnostics;
 
 
 namespace MSSS_StaffManagementApp_
@@ -26,7 +27,24 @@ namespace MSSS_StaffManagementApp_
 		// Method to load staff data from CSV into SortedDictionary
 		private void LoadStaffData()
 		{
-			try
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start(); // Start timing
+
+            using (StreamReader sr = new StreamReader("staff_data.csv"))
+            {
+                while (!sr.EndOfStream)
+                {
+                    var line = sr.ReadLine();
+                    var parts = line.Split(',');
+                    int id = int.Parse(parts[0]);
+                    string name = parts[1];
+                    MasterFile[id] = name; // Add to Dictionary
+                }
+            }
+
+            stopwatch.Stop(); // Stop timing
+            Console.WriteLine("Time taken to read file: " + stopwatch.ElapsedMilliseconds + " ms");
+            try
 			{
 				string[] lines = File.ReadAllLines("staff_data.csv");
 				MasterFile.Clear();  // Clear any existing records
@@ -51,6 +69,7 @@ namespace MSSS_StaffManagementApp_
 			{
 				MessageBox.Show($"Error loading data: {ex.Message}");
 			}
+
 		}
 		// Method to display all data in ListBox1 (read-only ListBox for all records)
 		private void DisplayData()

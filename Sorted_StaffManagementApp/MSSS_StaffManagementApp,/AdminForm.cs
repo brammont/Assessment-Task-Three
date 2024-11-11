@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace MSSS_StaffManagementApp_
 {
@@ -37,8 +38,6 @@ namespace MSSS_StaffManagementApp_
             }
             return base.ProcessCmdKey(ref msg, keyData);
         }
-
-
         private void LoadStaffData()
         {
             string[] lines = File.ReadAllLines("staff_data.csv");
@@ -55,8 +54,7 @@ namespace MSSS_StaffManagementApp_
             }
             DisplayData();
         }
-
-        // Method to display all data in ListBox1
+         // Method to display all data in ListBox1
         private void DisplayData()
         {
             listBox1.Items.Clear();
@@ -65,8 +63,7 @@ namespace MSSS_StaffManagementApp_
                 listBox1.Items.Add($"{item.Key}: {item.Value}");
             }
         }
-
-        // Method to create a new staff record (only allowed if target is true)
+         // Method to create a new staff record (only allowed if target is true)
         private void btnCreate_Click(object sender, EventArgs e)
         {
             if (!target)
@@ -94,13 +91,11 @@ namespace MSSS_StaffManagementApp_
                 lblAdminStatus.Text = "Invalid ID or Name.";
             }
         }
-
+        //back main form
         private void btnOpenMain_Click(object sender, EventArgs e)
         {
-            Form1 form = new Form1();
             this.Close();
         }
-
         // Method to update a staff record
         private void UpdateStaffRecord()
         {
@@ -123,8 +118,7 @@ namespace MSSS_StaffManagementApp_
                 lblAdminStatus.Text = "Invalid ID or Name.";
             }
         }
-
-        // Method to delete a staff record
+       // Method to delete a staff record
         private void DeleteStaffRecord()
         {
             if (int.TryParse(txtAdminID.Text, out int id))
@@ -146,19 +140,35 @@ namespace MSSS_StaffManagementApp_
                 lblAdminStatus.Text = "Invalid ID.";
             }
         }
-
-        // Method to save updated MasterFile data back to the CSV file
+                // Method to save updated MasterFile data back to the CSV file
         private void SaveStaffData()
         {
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start(); // Start timing
+
+            using (StreamReader sr = new StreamReader("staff_data.csv"))
+            {
+                while (!sr.EndOfStream)
+                {
+                    var line = sr.ReadLine();
+                    var parts = line.Split(',');
+                    int id = int.Parse(parts[0]);
+                    string name = parts[1];
+                    MasterFile[id] = name; // Add to Dictionary
+                }
+            }
+
+            stopwatch.Stop(); // Stop timing
+            Console.WriteLine("Time taken to read file: " + stopwatch.ElapsedMilliseconds + " ms");
             List<string> lines = MasterFile.Select(item => $"{item.Key},{item.Value}").ToList();
             File.WriteAllLines("staff_data.csv", lines);
         }
-
+        // update button
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             UpdateStaffRecord();
         }
-
+        //delete button
         private void btnDelete_Click(object sender, EventArgs e)
         {
             DeleteStaffRecord();
