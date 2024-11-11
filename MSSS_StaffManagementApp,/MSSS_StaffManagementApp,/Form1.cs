@@ -57,26 +57,45 @@ namespace MSSS_StaffManagementApp_
 				lstAllRecords.Items.Add($"{item.Key}: {item.Value}");
 			}
 		}
-		// Filter data based on text entered in txtFilter (real-time filtering)
-		private void txtFilter_TextChanged(object sender, EventArgs e)
-		{
-			string filter = txtFilter.Text.ToLower();
-			lstFilteredRecords.Items.Clear(); // Clear the ListBox before filtering
+        // Filter data based on text entered in txtFilter (real-time filtering)
+        private void txtFilter_TextChanged(object sender, EventArgs e)
+        {
+            string filter = txtFilter.Text.Trim().ToLower();
+            lstFilteredRecords.Items.Clear(); // Clear the ListBox before filtering
 
-			// Filter staff names from MasterFile based on the filter
-			var filtered = MasterFile
-				.Where(x => x.Value.ToLower().Contains(filter))
-				.ToList();
+            // Check if the filter input is an integer
+            if (int.TryParse(filter, out int idFilter))
+            {
+                // Filter by ID if the input is an integer
+                var filteredById = MasterFile
+                    .Where(x => x.Key == idFilter)
+                    .ToList();
 
-			foreach (var item in filtered)
-			{
-				lstFilteredRecords.Items.Add($"{item.Key}: {item.Value}");
-			}
+                foreach (var item in filteredById)
+                {
+                    lstFilteredRecords.Items.Add($"{item.Key}: {item.Value}");
+                }
 
-			lblStatus.Text = $"{filtered.Count} records found.";
-		}
+                lblStatus.Text = $"{filteredById.Count} record(s) found by ID.";
+            }
+            else
+            {
+                // Filter by Name if the input is not an integer
+                var filteredByName = MasterFile
+                    .Where(x => x.Value.ToLower().Contains(filter))
+                    .ToList();
 
-		private void loadButton_Click(object sender, EventArgs e)
+                foreach (var item in filteredByName)
+                {
+                    lstFilteredRecords.Items.Add($"{item.Key}: {item.Value}");
+                }
+
+                lblStatus.Text = $"{filteredByName.Count} record(s) found by Name.";
+            }
+        }
+
+
+        private void loadButton_Click(object sender, EventArgs e)
 		{
 			LoadStaffData();			
 		}
@@ -120,17 +139,10 @@ namespace MSSS_StaffManagementApp_
           
 			string id = txtFilterID.Text;
 			string name = txtFilterName.Text;
-			//int x = int.Parse(id);
-			if (id == "77" && string.IsNullOrEmpty(name))
-			{
-				AdminForm adminForm = new AdminForm(int.Parse(id), "");
-				adminForm.ShowDialog();
-			}
-			else
-			{
-				AdminForm adminForm = new AdminForm(int.Parse(id), name);
-				adminForm.ShowDialog();
-			}
+			AdminForm adminForm = new AdminForm(int.Parse(id), name);
+			adminForm.ShowDialog();
+            LoadStaffData();
+
         }
 		private void btnFilter_Click(object sender, EventArgs e)
 		{
@@ -167,5 +179,6 @@ namespace MSSS_StaffManagementApp_
             
         }
 
+       
     }
 }
